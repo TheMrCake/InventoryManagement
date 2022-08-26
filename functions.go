@@ -2,9 +2,19 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
-func Add(i *item, n int) {
+func Add() {
+	fmt.Printf("Please enter a barcode to add one to the quantity of that item. Type exit to return to menu.")
+	var input string
+	fmt.Scanln(&input)
+	for strings.ToLower(input) != "exit" {
+		
+	}
+}
+
+func Adder(i *item, n int) {
 	i.Quantity += n
 	fmt.Printf("Added %v, to %s", n, i.Name)
 

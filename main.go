@@ -1,22 +1,26 @@
 package main
 
+import (
+	"fmt"
+	"strings"
+)
+
 func main() {
 	Init()
+	for true {
+		Help()
+
+		var input string
+		fmt.Scanln(&input)
+
+		switch strings.ToLower(input) {
+		case "add":
+			Add()
+
+		}
+	}
 }
 
 func Init() {
-	/*
-		Start:
-		"Enter a barcode or scan an item to display its properties, or enter a command.
-		 - add:
-		 - remove:
-		 - new:
-		 - import:
-		 - export:
-		 - list:
-		 - orderlist:
-		 - help: "
-	*/
-	Help()
-
+	// TODO: Implement
 }
