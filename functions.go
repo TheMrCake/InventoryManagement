@@ -10,7 +10,13 @@ func Add() {
 	var input string
 	fmt.Scanln(&input)
 	for strings.ToLower(input) != "exit" {
-		
+		// TODO: Look in database for barcode and corrisponding item
+		if it, ok := Inventory[input]; ok {
+			it.Quantity += 1
+		} else {
+			fmt.Println("fuck you you stupid bitch") // TODO: lmao change this
+		}
+		fmt.Scanln(&input)
 	}
 }
 
