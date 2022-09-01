@@ -7,12 +7,14 @@ import (
 
 func Add() {
 	fmt.Printf("Please enter a barcode to add one to the quantity of that item. Type exit to return to menu.")
+	fmt.Println()
 	var input string
 	fmt.Scanln(&input)
 	for strings.ToLower(input) != "exit" {
 		// TODO: Look in database for barcode and corrisponding item
 		if it, ok := Inventory[input]; ok {
 			it.Quantity += 1
+			fmt.Println("Added one to", it.Name)
 		} else {
 			fmt.Println("fuck you you stupid bitch") // TODO: lmao change this
 		}
@@ -33,5 +35,5 @@ func Remove(i *item, n int) {
 }
 
 func Help() {
-	fmt.Printf("Enter a barcode or scan an item to display its properties, or enter a command.\n - add: \n - remove: \n - new: \n - import: \n - export: \n - list: \n - orderlist: \n - help: ")
+	fmt.Printf("Enter a barcode or scan an item to display its properties, or enter a command.\n - add: \n - remove: \n - new: \n - import: \n - export: \n - list: \n - orderlist: \n - help: \n")
 }
