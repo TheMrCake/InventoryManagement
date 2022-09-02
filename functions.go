@@ -11,10 +11,8 @@ func Add() {
 	var input string
 	fmt.Scanln(&input)
 	for strings.ToLower(input) != "exit" {
-		// TODO: Look in database for barcode and corrisponding item
 		if it, ok := Inventory[input]; ok {
-			it.Quantity += 1
-			fmt.Println("Added one to", it.Name)
+			Adder(it, 1)
 		} else {
 			fmt.Println("fuck you you stupid bitch") // TODO: lmao change this
 		}
@@ -24,12 +22,13 @@ func Add() {
 
 func Adder(i *item, n int) {
 	i.Quantity += n
-	fmt.Printf("Added %v, to %s", n, i.Name)
-
+	fmt.Printf("Added %v to %s", n, i.Name)
+	fmt.Println()
 }
 
 func Remove(i *item, n int) {
 	i.Quantity -= n
+	fmt.Printf("Removed %v from %s", n, i.Name)
 	// TODO: Using MinQuantity to warn.
 	// TODO: Negative quantity error.
 }
