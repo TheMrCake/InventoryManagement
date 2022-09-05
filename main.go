@@ -15,10 +15,17 @@ func main() {
 		var input string
 		fmt.Scanln(&input)
 
-		switch strings.ToLower(input) {
+		switch in := strings.ToLower(input); in {
 		case "add":
 			Add()
-
+		case "remove":
+			Remove()
+		default:
+			if it, ok := Inventory[in]; ok {
+				fmt.Println(it)
+			} else {
+				fmt.Println("fuck you you stupid bitch") // TODO: lmao change this
+			}
 		}
 	}
 
